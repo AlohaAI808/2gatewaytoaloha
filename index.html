@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everything Aloha - Gateway to Aloha | Adventure & Aloha Without Breaking the Bank</title>
+    <meta name="description" content="Your trusted guide to budget-friendly Hawaii adventures. Discover authentic experiences, hidden gems, and affordable activities across all Hawaiian islands.">
+    <meta property="og:title" content="Everything Aloha - Gateway to Aloha">
+    <meta property="og:description" content="Adventure & Aloha Without Breaking the Bank - Your guide to budget Hawaii travel">
+    <meta property="og:image" content="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=tropical Hawaiian landscape with mountains and ocean&w=1200&h=630&style=realistic">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=tropical hibiscus flower icon&w=32&h=32&style=minimal">
+    
+    <!-- External Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/chat/cdn/all.min.css" rel="stylesheet">
+    <script src="/chat/cdn/all.min.js"></script>
+    <script src="/chat/cdn/papaparse.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-inter bg-mist-white text-ink">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=tropical hibiscus flower logo&w=40&h=40&style=minimal" alt="Everything Aloha Logo" class="h-8 w-8 mr-3">
+                    <div>
+                        <div class="font-poppins font-bold text-lg text-ocean-blue">Everything Aloha</div>
+                        <div class="text-xs text-gray-600">GatewayToAloha.com</div>
+                    </div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#islands" class="text-ink hover:text-ocean-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Islands</a>
+                        <a href="#activities" class="text-ink hover:text-ocean-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Activities</a>
+                        <a href="#tools" class="text-ink hover:text-ocean-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Tools</a>
+                        <a href="#blog" class="text-ink hover:text-ocean-blue px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
+                        <button onclick="showEmailCapture()" class="bg-tropical-green text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors">Free Guide</button>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-ink hover:text-ocean-blue">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#islands" class="text-ink hover:text-ocean-blue block px-3 py-2 rounded-md text-base font-medium">Islands</a>
+                <a href="#activities" class="text-ink hover:text-ocean-blue block px-3 py-2 rounded-md text-base font-medium">Activities</a>
+                <a href="#tools" class="text-ink hover:text-ocean-blue block px-3 py-2 rounded-md text-base font-medium">Tools</a>
+                <a href="#blog" class="text-ink hover:text-ocean-blue block px-3 py-2 rounded-md text-base font-medium">Blog</a>
+                <button onclick="showEmailCapture()" class="w-full text-left bg-tropical-green text-white px-3 py-2 rounded-md text-base font-medium">Free Guide</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-20 pb-16 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="font-poppins text-4xl md:text-6xl font-bold mb-6">
+                    Adventure Hawaii<br>
+                    <span class="text-yellow-300">on a Budget</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+                    Adventure & Aloha Without Breaking the Bank
+                </p>
+                <p class="text-lg mb-10 max-w-2xl mx-auto opacity-80">
+                    Your trusted local guide to authentic Hawaiian experiences, hidden gems, and budget-friendly adventures across all islands.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('tools')" class="bg-yellow-400 text-ink px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-300 transition-colors">
+                        <i class="fas fa-calculator mr-2"></i>Start Planning
+                    </button>
+                    <button onclick="scrollToSection('activities')" class="bg-white bg-opacity-20 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-opacity-30 transition-colors backdrop-blur-sm">
+                        <i class="fas fa-eye mr-2"></i>See Free & Cheap Picks
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Islands Section -->
+    <section id="islands" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-poppins text-3xl md:text-4xl font-bold text-ink mb-4">Explore the Islands</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Each island offers unique adventures and budget-friendly experiences. Discover your perfect Hawaiian getaway.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer" onclick="showIslandDetails('oahu')">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=Oahu Hawaii Diamond Head crater and Waikiki beach aerial view&w=400&h=250&style=realistic" alt="Oahu" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Oahu</h3>
+                        <p class="text-gray-600 mb-4">The heart of Hawaii with free beaches, hiking trails, and cultural sites.</p>
+                        <div class="flex items-center text-tropical-green">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span class="font-semibold">Budget: $50-80/day</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer" onclick="showIslandDetails('maui')">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=Maui Hawaii Haleakala crater sunrise and tropical landscape&w=400&h=250&style=realistic" alt="Maui" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Maui</h3>
+                        <p class="text-gray-600 mb-4">Road to Hana, Haleakala sunrise, and world-class snorkeling spots.</p>
+                        <div class="flex items-center text-tropical-green">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span class="font-semibold">Budget: $60-90/day</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer" onclick="showIslandDetails('kauai')">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=Kauai Hawaii Na Pali coast dramatic cliffs and green valleys&w=400&h=250&style=realistic" alt="Kauai" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Kauai</h3>
+                        <p class="text-gray-600 mb-4">Garden Isle with epic hiking, waterfalls, and pristine beaches.</p>
+                        <div class="flex items-center text-tropical-green">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span class="font-semibold">Budget: $55-85/day</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer" onclick="showIslandDetails('big-island')">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=Big Island Hawaii active volcano lava flow and black sand beaches&w=400&h=250&style=realistic" alt="Big Island" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Big Island</h3>
+                        <p class="text-gray-600 mb-4">Active volcanoes, diverse climates, and unique black sand beaches.</p>
+                        <div class="flex items-center text-tropical-green">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span class="font-semibold">Budget: $45-75/day</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer" onclick="showIslandDetails('molokai-lanai')">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=Molokai Hawaii remote cliffs and untouched beaches&w=400&h=250&style=realistic" alt="Molokai & Lanai" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Molokai & Lanai</h3>
+                        <p class="text-gray-600 mb-4">Off-the-beaten-path adventures and authentic Hawaiian culture.</p>
+                        <div class="flex items-center text-tropical-green">
+                            <i class="fas fa-dollar-sign mr-2"></i>
+                            <span class="font-semibold">Budget: $40-70/day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-poppins text-3xl md:text-4xl font-bold text-ink mb-4">Budget Adventures</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">From free hiking trails to affordable snorkeling spots, discover amazing experiences that won't break the bank.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="showActivityDetails('hiking')">
+                    <div class="text-center">
+                        <div class="bg-tropical-green bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-mountain text-tropical-green text-2xl"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Hiking</h3>
+                        <p class="text-gray-600 mb-4">Free trails with breathtaking views, waterfalls, and volcanic landscapes.</p>
+                        <span class="text-tropical-green font-semibold">FREE - $10</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="showActivityDetails('snorkeling')">
+                    <div class="text-center">
+                        <div class="bg-ocean-blue bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-fish text-ocean-blue text-2xl"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Snorkeling & Diving</h3>
+                        <p class="text-gray-600 mb-4">Discover coral reefs and tropical fish at budget-friendly spots.</p>
+                        <span class="text-tropical-green font-semibold">$15 - $50</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="showActivityDetails('camping')">
+                    <div class="text-center">
+                        <div class="bg-orchid-purple bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-campground text-orchid-purple text-2xl"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Camping</h3>
+                        <p class="text-gray-600 mb-4">Sleep under the stars at beautiful beachfront and mountain campsites.</p>
+                        <span class="text-tropical-green font-semibold">$5 - $25/night</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="showActivityDetails('beaches')">
+                    <div class="text-center">
+                        <div class="bg-yellow-500 bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-umbrella-beach text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Beaches & Surfing</h3>
+                        <p class="text-gray-600 mb-4">World-class beaches and surf spots accessible to everyone.</p>
+                        <span class="text-tropical-green font-semibold">FREE - $30</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="showActivityDetails('culture')">
+                    <div class="text-center">
+                        <div class="bg-red-500 bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-red-500 text-2xl"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Culture</h3>
+                        <p class="text-gray-600 mb-4">Experience authentic Hawaiian culture through free events and sites.</p>
+                        <span class="text-tropical-green font-semibold">FREE - $20</span>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-lg shadow-md p-6 cursor-pointer" onclick="showActivityDetails('free')">
+                    <div class="text-center">
+                        <div class="bg-green-500 bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gift text-green-500 text-2xl"></i>
+                        </div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-2">Free Things</h3>
+                        <p class="text-gray-600 mb-4">Amazing experiences that cost absolutely nothing but create lasting memories.</p>
+                        <span class="text-tropical-green font-semibold">100% FREE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-poppins text-3xl md:text-4xl font-bold text-ink mb-4">Planning Tools</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Smart tools to help you plan the perfect Hawaiian adventure within your budget.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Budget Calculator -->
+                <div class="bg-gradient-to-br from-ocean-blue to-tropical-green rounded-xl p-8 text-white">
+                    <h3 class="font-poppins text-2xl font-bold mb-6">
+                        <i class="fas fa-calculator mr-3"></i>Budget Calculator
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Number of nights</label>
+                            <input type="number" id="nights" value="7" min="1" max="30" class="w-full px-3 py-2 rounded-lg text-ink">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Number of travelers</label>
+                            <input type="number" id="travelers" value="2" min="1" max="10" class="w-full px-3 py-2 rounded-lg text-ink">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Lodging preference</label>
+                            <select id="lodging" class="w-full px-3 py-2 rounded-lg text-ink">
+                                <option value="hostel">Hostel ($25-40/night)</option>
+                                <option value="budget">Budget Hotel ($60-90/night)</option>
+                                <option value="mid">Mid-range ($100-150/night)</option>
+                                <option value="luxury">Luxury ($200+/night)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Transportation</label>
+                            <select id="transport" class="w-full px-3 py-2 rounded-lg text-ink">
+                                <option value="bus">Public Bus ($2-5/day)</option>
+                                <option value="car">Rental Car ($35-60/day)</option>
+                                <option value="uber">Rideshare ($20-40/day)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Paid activities (%)</label>
+                            <input type="range" id="activities" min="0" max="100" value="30" class="w-full">
+                            <div class="flex justify-between text-sm">
+                                <span>All Free</span>
+                                <span id="activities-value">30%</span>
+                                <span>All Paid</span>
+                            </div>
+                        </div>
+                        
+                        <button onclick="calculateBudget()" class="w-full bg-yellow-400 text-ink py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                            Calculate My Budget
+                        </button>
+                        
+                        <div id="budget-result" class="hidden mt-6 p-4 bg-white bg-opacity-20 rounded-lg backdrop-blur-sm">
+                            <h4 class="font-bold text-lg mb-2">Your Estimated Budget</h4>
+                            <div id="budget-details"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trip Planner -->
+                <div class="bg-gradient-to-br from-orchid-purple to-pink-500 rounded-xl p-8 text-white">
+                    <h3 class="font-poppins text-2xl font-bold mb-6">
+                        <i class="fas fa-map-marked-alt mr-3"></i>Trip Planner
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Select your island</label>
+                            <select id="trip-island" class="w-full px-3 py-2 rounded-lg text-ink">
+                                <option value="oahu">Oahu</option>
+                                <option value="maui">Maui</option>
+                                <option value="kauai">Kauai</option>
+                                <option value="big-island">Big Island</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Trip duration</label>
+                            <select id="trip-duration" class="w-full px-3 py-2 rounded-lg text-ink">
+                                <option value="3">3 days</option>
+                                <option value="5">5 days</option>
+                                <option value="7">7 days</option>
+                                <option value="10">10 days</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Interests (select all that apply)</label>
+                            <div class="grid grid-cols-2 gap-2 text-sm">
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="hiking" class="mr-2"> Hiking
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="beaches" class="mr-2"> Beaches
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="snorkeling" class="mr-2"> Snorkeling
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="culture" class="mr-2"> Culture
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="food" class="mr-2"> Food
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="checkbox" value="photography" class="mr-2"> Photography
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <button onclick="generateItinerary()" class="w-full bg-yellow-400 text-ink py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                            Generate My Itinerary
+                        </button>
+                        
+                        <div id="itinerary-result" class="hidden mt-6 p-4 bg-white bg-opacity-20 rounded-lg backdrop-blur-sm">
+                            <h4 class="font-bold text-lg mb-2">Your Custom Itinerary</h4>
+                            <div id="itinerary-details"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Guides Section -->
+    <section id="blog" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-poppins text-3xl md:text-4xl font-bold text-ink mb-4">Featured Guides & Deals</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Latest budget travel tips, hidden gems, and exclusive deals for Hawaii adventures.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=budget backpacker hiking Diamond Head crater Oahu Hawaii&w=400&h=250&style=realistic" alt="Oahu Budget Guide" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-tropical-green text-sm font-semibold mb-2">ISLAND GUIDE</div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-3">Oahu on $50/Day: Complete Budget Guide</h3>
+                        <p class="text-gray-600 mb-4">Discover how to experience the best of Oahu without breaking the bank, including free activities and cheap eats.</p>
+                        <a href="#" class="text-ocean-blue font-semibold hover:underline">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=snorkeling gear and tropical fish underwater Hawaii&w=400&h=250&style=realistic" alt="Snorkeling Guide" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-ocean-blue text-sm font-semibold mb-2">ACTIVITY GUIDE</div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-3">Best Free Snorkeling Spots in Hawaii</h3>
+                        <p class="text-gray-600 mb-4">Top 15 snorkeling locations you can access for free, plus budget gear recommendations.</p>
+                        <a href="#" class="text-ocean-blue font-semibold hover:underline">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="card-hover bg-white rounded-xl shadow-lg overflow-hidden">
+                    <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=Hawaiian luau traditional food and culture celebration&w=400&h=250&style=realistic" alt="Culture Guide" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-orchid-purple text-sm font-semibold mb-2">CULTURE</div>
+                        <h3 class="font-poppins text-xl font-bold text-ink mb-3">Free Cultural Experiences in Hawaii</h3>
+                        <p class="text-gray-600 mb-4">Respectful ways to experience authentic Hawaiian culture without spending a fortune.</p>
+                        <a href="#" class="text-ocean-blue font-semibold hover:underline">Read More →</a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-ocean-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                    View All Guides
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture Section -->
+    <section class="py-16 hero-gradient text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-poppins text-3xl md:text-4xl font-bold mb-4">Get Your Free Hawaii Starter Kit</h2>
+            <p class="text-xl mb-8 opacity-90">Budget checklists, hidden gems, and insider tips delivered to your inbox.</p>
+            
+            <div class="max-w-md mx-auto">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" id="email-input" placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-lg text-ink">
+                    <button onclick="subscribeEmail()" class="bg-yellow-400 text-ink px-6 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                        Get Free Kit
+                    </button>
+                </div>
+                <p class="text-sm mt-4 opacity-75">No spam, just amazing Hawaii travel tips. Unsubscribe anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ink text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="https://cdn.simulationtheory.ai/gasset/?asset=img&prompt=tropical hibiscus flower logo white&w=40&h=40&style=minimal" alt="Everything Aloha Logo" class="h-8 w-8 mr-3">
+                        <div>
+                            <div class="font-poppins font-bold text-lg">Everything Aloha</div>
+                            <div class="text-sm text-gray-400">GatewayToAloha.com</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">Your trusted guide to budget-friendly Hawaiian adventures with authentic local insights.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-poppins font-bold mb-4">Islands</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Oahu</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Maui</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Kauai</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Big Island</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Molokai & Lanai</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-poppins font-bold mb-4">Activities</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Hiking</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Snorkeling</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Camping</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Free Things</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Culture</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-poppins font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Affiliate Disclosure</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Everything Aloha. All rights reserved. | Adventure & Aloha Without Breaking the Bank</p>
+                <p class="mt-2 text-sm">
+                    <strong>Affiliate Disclosure:</strong> This site contains affiliate links. We may earn a commission when you book through our partners, at no extra cost to you.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="modal-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-xl max-w-2xl w-full max-h-90vh overflow-y-auto">
+            <!-- Modal content will be inserted here -->
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
