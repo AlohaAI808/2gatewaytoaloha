@@ -1,0 +1,44 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* CSS Custom Properties (Brand Colors) */
+:root {
+    --ocean-blue: #0E6BA8;
+    --tropical-green: #1FA97A;
+    --orchid-purple: #6C4BA9;
+    --ink: #0E1A1B;
+    --mist-white: #F7FBFD;
+}
+
+/* Font Awesome Styles */
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-path: '/chat/webfonts/fa-regular-400';
+    src: url('/chat/webfonts/fa-regular-400.woff2') format('woff2'),
+        url('/chat/webfonts/fa-regular-400.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-path: '/chat/webfonts/fa-solid-900';
+    src: url('/chat/webfonts/fa-solid-900.woff2') format('woff2'),
+        url('/chat/webfonts/fa-solid-900.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-path: '/chat/webfonts/fa-brands-400';
+    src: url('/chat/webfonts/fa-brands-400.woff2') format('woff2'),
+        url('/chat/webfonts/fa-brands-400.ttf') format('truetype');
+}
+
+/* Typography Classes */
+.font-poppins { 
+    font-family: 'Poppins', sans-serif; 
+}
+
+.font-inter { 
+    font-family: 'Inter', sans-serif; 
+}
+
+/*
